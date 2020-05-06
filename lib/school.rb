@@ -20,4 +20,14 @@ class School
     "#{finish}0".gsub(".", ":")
   end
 
+  def is_full_time?
+    true
+  end
+
+  def standard_student_names
+    student_names.map do |student|
+      student.capitalize
+    end
+  end
+
 end
