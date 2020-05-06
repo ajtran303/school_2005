@@ -14,10 +14,9 @@ class School
   end
 
   def end_time
-    start = @start_time.gsub(":", ".").to_f
-    hours = @hours_in_school_day * 1.00
-    finish = start + hours
-    "#{finish}0".gsub(".", ":")
+    new_time = to_dot(@start_time)
+    end_time = '%.2f' % (new_time + @hours_in_school_day)
+    to_colon(end_time)
   end
 
   def is_full_time?
@@ -31,9 +30,17 @@ class School
   end
 
   def convert_end_time_to_clock_time
-    time = end_time.gsub(":", ".").to_f
-    clock = time-12.abs
-    "#{clock}0".gsub(".", ":")
+    new_time = to_dot(end_time)
+    clock_time = '%.2f' % (new_time-12.abs)
+    to_colon(clock_time)
+  end
+
+  def to_dot(time_string)
+    time_string.gsub(":", ".").to_f
+  end
+
+  def to_colon(time_float)
+    time_float.to_s.gsub(".", ":")
   end
 
 end
