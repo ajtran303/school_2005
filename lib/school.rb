@@ -20,7 +20,7 @@ class School
   end
 
   def is_full_time?
-    true
+    @hours_in_school_day >= 7
   end
 
   def standard_student_names
