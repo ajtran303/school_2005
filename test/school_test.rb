@@ -71,5 +71,12 @@ class SchoolTest < Minitest::Test
     assert_equal ["Aurora", "Tim", "Megan"], school.standard_student_names
   end
 
+  # Iteration 4 tests:
+
+  def test_it_converts_end_time_to_12_hr_format
+    school = School.new("9:00", 7)
+
+    assert_equal "4:00", school.convert_end_time_to_clock_time
+  end
 
 end
