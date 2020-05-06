@@ -30,4 +30,10 @@ class School
     end
   end
 
+  def convert_end_time_to_clock_time
+    time = end_time.gsub(":", ".").to_f
+    clock = time-12.abs
+    "#{clock}0".gsub(".", ":")
+  end
+
 end
